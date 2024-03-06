@@ -1,4 +1,9 @@
 # @scibook/vector
+
+![Statements](https://img.shields.io/badge/statements-100%25-brightgreen.svg?style=flat)
+![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat)
+![Lines](https://img.shields.io/badge/lines-100%25-brightgreen.svg?style=flat)
+
 **This library is currently under development and should not be used in production!** 
 
 ## Features
