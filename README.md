@@ -8,7 +8,7 @@
 
 ## Features
 * Full swizzle support for 2/3/4 dimensional vectors (ie. vec.xyz , vec.zyxw )
-* 100% code test coverage in Jest'
+* 100% code test coverage in Jest
 * Written in TypeScript
 
 ## Usage example
