@@ -10,6 +10,7 @@
 * Full swizzle support for 2/3/4 dimensional vectors (ie. vec.xyz , vec.zyxw )
 * 100% code test coverage in Jest
 * Written in TypeScript
+* Documentation [HERE](https://scibook.github.io/vector/)
 
 ## Usage example
 ```ts
