@@ -53,7 +53,10 @@ export class Vector3 extends BaseVector {
      * @param axis - The axis of rotation, can be Axis.X, Axis.Y, Axis.Z.
      * @returns The new rotated vector.
      */
-    rotate(theta: number, axis: any = Vector3.Axis.Z): Vector3 {
+    rotate(
+        theta: number,
+        axis: ThisParameterType<typeof Vector3.Axis> = Vector3.Axis.Z
+    ): Vector3 {
         let x,
             y,
             z = 0
@@ -78,12 +81,15 @@ export class Vector3 extends BaseVector {
     }
 
     /**
-     * Rotate this vector theta degrees along the given axis (Axis.X/Y/Z)
-     * @param degrees - Angle in degrees.
-     * @param axis - The axis of rotation, can be Axis.X, Axis.Y, Axis.Z.
-     * @returns The new rotated vector.
+     * Rotate this vector theta degrees along the given axis (Vector3.Axis.X/Y/Z)
+     * @param degrees - Angle in degrees
+     * @param axis - The axis of rotation, can be Axis.X, Axis.Y, Axis.Z
+     * @returns The new rotated vector
      */
-    rotateD(degrees: number, axis: any = Vector3.Axis.Z): Vector3 {
+    rotateD(
+        degrees: number,
+        axis: ThisParameterType<typeof Vector3.Axis> = Vector3.Axis.Z
+    ): Vector3 {
         return this.rotate(degrees * Vector3.DEG2RAD, axis)
     }
 

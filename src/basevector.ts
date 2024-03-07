@@ -1,6 +1,16 @@
+enum Axis { // We add this as a static member after defining locally
+    X,
+    Y,
+    Z,
+}
+
 export class BaseVector {
     [idx: number]: number
-    size = 0
+    private readonly size
+
+    static Axis = Axis
+    static readonly EPSILON = 0.01
+    static readonly DEG2RAD = 0.0174533
 
     /**
      * Creates an n-dimensional vector and initializes its indices.
@@ -134,15 +144,5 @@ export class BaseVector {
             str += this[i] + ','
         }
         return str.substring(0, str.length - 1)
-    }
-}
-
-export namespace BaseVector {
-    export const EPSILON = 0.01
-    export const DEG2RAD = 0.0174533
-    export enum Axis {
-        X,
-        Y,
-        Z,
     }
 }
