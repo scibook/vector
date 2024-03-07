@@ -47,6 +47,46 @@ export class Vector3 extends BaseVector {
         return new Vector3(0, 0, 0)
     }
 
+    /**
+     * Rotate this vector theta radians along the given axis (Axis.X/Y/Z)
+     * @param theta - Angle in radians.
+     * @param axis - The axis of rotation, can be Axis.X, Axis.Y, Axis.Z.
+     * @returns The new rotated vector.
+     */
+    rotate(theta: number, axis: any = Vector3.Axis.Z): Vector3 {
+        let x,
+            y,
+            z = 0
+        switch (axis) {
+            case Vector3.Axis.Z:
+                x = this.x * Math.cos(theta) - this.y * Math.sin(theta)
+                y = this.x * Math.sin(theta) + this.y * Math.cos(theta)
+                z = this.z
+                break
+            case Vector3.Axis.Y:
+                x = this.z * Math.sin(theta) + this.x * Math.cos(theta)
+                y = this.y
+                z = this.z * Math.cos(theta) - this.x * Math.sin(theta)
+                break
+            case Vector3.Axis.X:
+                x = this.x
+                y = this.y * Math.cos(theta) - this.z * Math.sin(theta)
+                z = this.y * Math.sin(theta) + this.z * Math.cos(theta)
+                break
+        }
+        return new Vector3(x, y, z)
+    }
+
+    /**
+     * Rotate this vector theta degrees along the given axis (Axis.X/Y/Z)
+     * @param degrees - Angle in degrees.
+     * @param axis - The axis of rotation, can be Axis.X, Axis.Y, Axis.Z.
+     * @returns The new rotated vector.
+     */
+    rotateD(degrees: number, axis: any = Vector3.Axis.Z): Vector3 {
+        return this.rotate(degrees * Vector3.DEG2RAD, axis)
+    }
+
     // My apologies
     get xxx(): Vector3 {
         return Vector3.fromArray([this[0], this[0], this[0]])

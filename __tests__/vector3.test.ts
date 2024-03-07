@@ -30,6 +30,38 @@ describe("Simple expression tests", () => {
         vec.normalize();
         expect(vec.magnitude()).toBeCloseTo(1);
     });
+    test("Rotate", () => {
+        let vec1 = new Vector3(1,0,0)
+        expect(vec1.rotate(Math.PI)[0]).toBeCloseTo(-1)
+        expect(vec1.rotate(Math.PI*2)[0]).toBeCloseTo(1)
+        expect(vec1.rotate(Math.PI/2).magnitude()).toBeCloseTo(1);
+
+        vec1 = Vector3.fromArray([0,1,0])
+        expect(vec1.rotate(Math.PI,Vector3.Axis.X)[1]).toBeCloseTo(-1)
+        expect(vec1.rotate(Math.PI*2,Vector3.Axis.X)[1]).toBeCloseTo(1)
+        expect(vec1.rotate(Math.PI/2,Vector3.Axis.X).magnitude()).toBeCloseTo(1);
+
+        vec1 = Vector3.fromArray([0,0,1])
+        expect(vec1.rotate(Math.PI,Vector3.Axis.Y)[2]).toBeCloseTo(-1)
+        expect(vec1.rotate(Math.PI*2,Vector3.Axis.Y)[2]).toBeCloseTo(1)
+        expect(vec1.rotate(Math.PI/2,Vector3.Axis.Y).magnitude()).toBeCloseTo(1);
+    });
+    test("Rotate Degrees", () => {
+        let vec1 = new Vector3(1,0,0)
+        expect(vec1.rotateD(180)[0]).toBeCloseTo(-1)
+        expect(vec1.rotateD(360)[0]).toBeCloseTo(1)
+        expect(vec1.rotateD(90).magnitude()).toBeCloseTo(1);
+
+        vec1 = Vector3.fromArray([0,1,0])
+        expect(vec1.rotateD(180,Vector3.Axis.X)[1]).toBeCloseTo(-1)
+        expect(vec1.rotateD(360,Vector3.Axis.X)[1]).toBeCloseTo(1)
+        expect(vec1.rotateD(90,Vector3.Axis.X).magnitude()).toBeCloseTo(1);
+
+        vec1 = Vector3.fromArray([0,0,1])
+        expect(vec1.rotateD(180,Vector3.Axis.Y)[2]).toBeCloseTo(-1)
+        expect(vec1.rotateD(360,Vector3.Axis.Y)[2]).toBeCloseTo(1)
+        expect(vec1.rotateD(90,Vector3.Axis.Y).magnitude()).toBeCloseTo(1);
+    });
     test("Swizzle Getters", () => {
         const vec = new Vector3(1,2,3)
         expect(vec.xxx.isEqual(new Vector3(1,1,1))).toBe(true)
@@ -98,12 +130,6 @@ describe("Simple expression tests", () => {
         const vec1 = new Vector3(0,1,0)
         const vec2 = new Vector3(1,0,0)
         expect(vec1.dot(vec2)).toBeCloseTo(0)
-    });
-    test("Rotate", () => {
-
-    });
-    test("Rotate Degrees", () => {
-
     });
     test("fromArray", () => {
         const vec = Vector3.fromArray([1,2,3]);

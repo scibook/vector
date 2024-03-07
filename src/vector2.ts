@@ -1,7 +1,5 @@
 import { BaseVector } from './basevector'
 
-const DEG2RAD = 0.0174533
-
 /**
  * Represents a 2d vector whie being an extension of the array class.
  */
@@ -75,7 +73,7 @@ export class Vector2 extends BaseVector {
      * @returns The new rotated vector.
      */
     rotateD(degrees: number): Vector2 {
-        return this.rotate(degrees * DEG2RAD)
+        return this.rotate(degrees * Vector2.DEG2RAD)
     }
 
     /**

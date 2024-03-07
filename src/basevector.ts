@@ -1,5 +1,3 @@
-const EPSILON = 0.01
-
 export class BaseVector {
     [idx: number]: number
     size = 0
@@ -107,7 +105,7 @@ export class BaseVector {
      */
     isEqual(b: BaseVector): boolean {
         for (let i = 0; i < this.size; i++) {
-            if (Math.abs(b[0] - this[0]) > EPSILON) {
+            if (Math.abs(b[0] - this[0]) > BaseVector.EPSILON) {
                 return false
             }
         }
@@ -136,5 +134,15 @@ export class BaseVector {
             str += this[i] + ','
         }
         return str.substring(0, str.length - 1)
+    }
+}
+
+export namespace BaseVector {
+    export const EPSILON = 0.01
+    export const DEG2RAD = 0.0174533
+    export enum Axis {
+        X,
+        Y,
+        Z,
     }
 }
