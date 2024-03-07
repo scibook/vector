@@ -33,6 +33,12 @@ describe("Simple expression tests", () => {
         expect(vec2[1]).toBeCloseTo(2.2/10.0);
         expect(vec2[2]).toBeCloseTo(3.2/10.0);
         expect(vec2[3]).toBeCloseTo(4.2/10.0);
+        const vec3 = new Vector4(1.2,2.2,3.3,4.4);
+        vec3.diveq(10)
+        expect(vec3[0]).toBeCloseTo(1.2/10.0);
+        expect(vec3[1]).toBeCloseTo(2.2/10.0);
+        expect(vec3[2]).toBeCloseTo(3.3/10.0);
+        expect(vec3[3]).toBeCloseTo(4.4/10.0);
     });
     test("Check mul (scalar)", () => {
         const vec = new Vector4(1.2,2.2,3.2,4.2).mul(10);
@@ -40,6 +46,13 @@ describe("Simple expression tests", () => {
         expect(vec[1]).toBeCloseTo(22.0);
         expect(vec[2]).toBeCloseTo(32.0);
         expect(vec[3]).toBeCloseTo(42.0);
+
+        const vec3 = new Vector4(1.2,2.2,3.3,4.4);
+        vec3.muleq(10)
+        expect(vec3[0]).toBeCloseTo(1.2*10.0);
+        expect(vec3[1]).toBeCloseTo(2.2*10.0);
+        expect(vec3[2]).toBeCloseTo(3.3*10.0);
+        expect(vec3[3]).toBeCloseTo(4.4*10.0);
     });
     test("Normalize()", () => {
         const vec:Vector4 = new Vector4(1.2,2.2,9.2,5.78);
@@ -350,6 +363,19 @@ describe("Simple expression tests", () => {
         expect(vec1.add(vec2).isEqual(vec2)).toBe(true);
         expect(vec2.add(vec3).isEqual(vec4)).toBe(true);
         expect(vec2.sub(vec2).isEqual(vec1)).toBe(true);
+        // Mutables (eq)
+        const vec10 = new Vector4(1,1,1,1);
+        vec10.subeq(vec10)
+        expect(vec10.x).toBeCloseTo(0)
+        expect(vec10.y).toBeCloseTo(0)
+        expect(vec10.z).toBeCloseTo(0)
+        expect(vec10.w).toBeCloseTo(0)
+        vec10.xyzw = [1,1,1,1]
+        vec10.addeq(vec10)
+        expect(vec10.x).toBeCloseTo(2)
+        expect(vec10.y).toBeCloseTo(2)
+        expect(vec10.z).toBeCloseTo(2)
+        expect(vec10.w).toBeCloseTo(2)
     });
     test("Equals", () => {
         const vec1 = new Vector4(-1,-2,-3,-4)

@@ -52,8 +52,9 @@ export class BaseVector {
     }
 
     /**
+     * (c=a/b) Divides the vector by a scalar value, non-mutating
      * @param scalar - The divisor
-     * @returns A vector with all components divided by the scalar.
+     * @returns A new vector with all components divided by the scalar.
      */
     div(scalar: number): BaseVector {
         const newvec = new BaseVector(this.size)
@@ -64,8 +65,21 @@ export class BaseVector {
     }
 
     /**
+     * (a/=b) Divides the vector by a scalar value, mutating
      * @param scalar - The divisor
-     * @returns A vector with all components multiplied by the scalar.
+     * @returns A new vector with all components divided by the scalar.
+     */
+    diveq(scalar: number): BaseVector {
+        for (let i = 0; i < this.size; i++) {
+            this[i] = this[i] / scalar
+        }
+        return this
+    }
+
+    /**
+     * (c=a*b) Multiply a scalar by the calling vector, non-mutating
+     * @param scalar - The scalar to multiply with
+     * @returns A new vector with all components multiplied by the scalar.
      */
     mul(scalar: number): BaseVector {
         const newvec = new BaseVector(this.size)
@@ -76,6 +90,19 @@ export class BaseVector {
     }
 
     /**
+     * (a*=b) Multiply a scalar by the calling vector, mutating
+     * @param scalar - The scalar to multiply with
+     * @returns The calling vector
+     */
+    muleq(scalar: number): BaseVector {
+        for (let i = 0; i < this.size; i++) {
+            this[i] = this[i] * scalar
+        }
+        return this
+    }
+
+    /**
+     * Add a vector to the calling vector, non-mutating
      * @param b - The vector to add to this vector.
      * @returns A new vector that is the sum of this vector and b.
      */
@@ -88,8 +115,21 @@ export class BaseVector {
     }
 
     /**
-     * @param b - The vector to subtract from this vector.
-     * @returns A new vector that is the difference of this vector and b.
+     * (a+=b) Add a vector to the calling vector, mutating
+     * @param b - The vector to add to this vector
+     * @returns The calling vector instance
+     */
+    addeq(b: BaseVector): BaseVector {
+        for (let i = 0; i < this.size; i++) {
+            this[i] = this[i] + b[i]
+        }
+        return this
+    }
+
+    /**
+     * (c=a-b) Subtract a vector from the calling vector, non-mutating
+     * @param b - The vector to subtract from this vector
+     * @returns A new vector that is the difference of this vector and b
      */
     sub(b: BaseVector): BaseVector {
         const newvec = new BaseVector(this.size)
@@ -97,6 +137,18 @@ export class BaseVector {
             newvec[i] = this[i] - b[i]
         }
         return newvec
+    }
+
+    /**
+     * (a-=b) Subtract a vector from the calling vector, mutating
+     * @param b - The vector to subtract from this vector
+     * @returns The calling vector instance
+     */
+    subeq(b: BaseVector): BaseVector {
+        for (let i = 0; i < this.size; i++) {
+            this[i] = this[i] - b[i]
+        }
+        return this
     }
 
     /**
