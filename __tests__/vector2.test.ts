@@ -6,6 +6,15 @@ describe("Simple expression tests", () => {
         expect(vec.x).toBeCloseTo(1.2);
         expect(vec.y).toBeCloseTo(2.2);
     });
+    test("Destructuring", () => {
+        const vec = new Vector2(1.2,2.2);
+        const{x,y} = vec
+        const{xy} = vec
+        expect(x).toBeCloseTo(1.2);
+        expect(y).toBeCloseTo(2.2);
+        expect(xy.x).toBeCloseTo(1.2);
+        expect(xy.y).toBeCloseTo(2.2);
+    });
     test("Check magnitude", () => {
         const vec = new Vector2(1.2,2.2);
         expect(vec.magnitude()).toBeCloseTo(2.50599);

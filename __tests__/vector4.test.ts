@@ -8,6 +8,19 @@ describe("Simple expression tests", () => {
         expect(vec.z).toBeCloseTo(3.2);
         expect(vec.w).toBeCloseTo(4.2);
     });
+    test("Destructuring", () => {
+        const vec = new Vector4(1.2,2.2,3.3,4.4);
+        const{x,y,z,w} = vec
+        const{xyzw} = vec
+        expect(x).toBeCloseTo(1.2);
+        expect(y).toBeCloseTo(2.2);
+        expect(z).toBeCloseTo(3.3);
+        expect(w).toBeCloseTo(4.4);
+        expect(xyzw.x).toBeCloseTo(1.2);
+        expect(xyzw.y).toBeCloseTo(2.2);
+        expect(xyzw.z).toBeCloseTo(3.3);
+        expect(xyzw.w).toBeCloseTo(4.4);
+    });
     test("Check magnitude", () => {
         const vec = new Vector4(1.2,2.2,3.2,4.2);
         expect(vec.magnitude()).toBeCloseTo(5.84465);

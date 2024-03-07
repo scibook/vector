@@ -7,6 +7,17 @@ describe("Simple expression tests", () => {
         expect(vec.y).toBeCloseTo(2.2);
         expect(vec.z).toBeCloseTo(3.2);
     });
+    test("Destructuring", () => {
+        const vec = new Vector3(1.2,2.2,3.3);
+        const{x,y,z} = vec
+        const{xyz} = vec
+        expect(x).toBeCloseTo(1.2);
+        expect(y).toBeCloseTo(2.2);
+        expect(z).toBeCloseTo(3.3);
+        expect(xyz.x).toBeCloseTo(1.2);
+        expect(xyz.y).toBeCloseTo(2.2);
+        expect(xyz.z).toBeCloseTo(3.3);
+    });
     test("Check magnitude", () => {
         const vec = new Vector3(1.2,2.2,3.2);
         expect(vec.magnitude()).toBeCloseTo(4.06448);
