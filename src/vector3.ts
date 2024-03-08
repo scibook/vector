@@ -93,6 +93,20 @@ export class Vector3 extends BaseVector {
         return this.rotate(degrees * Vector3.DEG2RAD, axis)
     }
 
+    /**
+     * Returns a new vector representing the cross product of this vector and parameter vector b.
+     * The magnitude of the vector will be zero when the vectors are equal or opposite.
+     * @param b - The vector to perform the cross product with.
+     * @returns A vector that is at a right angle to the two vectors given.
+     */
+    cross(b: Vector3): Vector3 {
+        return new Vector3(
+            this.y * b.z - this.z * b.y,
+            this.z * b.x - this.x * b.z,
+            this.x * b.y - this.y * b.x
+        )
+    }
+
     // My apologies
     get xxx(): Vector3 {
         return Vector3.fromArray([this[0], this[0], this[0]])

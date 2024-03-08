@@ -164,6 +164,16 @@ describe("Simple expression tests", () => {
         const vec2 = new Vector3(1,0,0)
         expect(vec1.dot(vec2)).toBeCloseTo(0)
     });
+    test("Cross", () => {
+        const vec1 = new Vector3(0,1,0)
+        const vec2 = new Vector3(1,0,0)
+        expect(vec1.cross(vec1).magnitude()).toBeCloseTo(0)
+        expect(vec2.cross(vec1).isEqual(new Vector3(0,0,1))).toBe(true)
+        const vec3 = new Vector3(1,2,3)
+        const vec4 = new Vector3(3,1,2)
+        const ans = new Vector3(1,7,-5)
+        expect(vec3.cross(vec4).isEqual(ans)).toBe(true)
+    });
     test("fromArray", () => {
         const vec = Vector3.fromArray([1,2,3]);
         expect(vec.x).toBeCloseTo(1);
