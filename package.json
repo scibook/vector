@@ -7,8 +7,8 @@
     "module": "./dist/module.js",
     "types": "dist/types.d.ts",
     "scripts": {
-        "clean:deep": "npm run clean && npm run clean:alldirs && npm i",
-        "clean:alldirs": "rimraf --glob ./.parcel-cache/** ./docs/** ./coverage/** ./node_modules/** ./dist/**",
+        "clean:deep": "npm run clean:alldirs",
+        "clean:alldirs": "rimraf --glob ./.parcel-cache/** ./docs/** ./coverage/** ./dist/**",
         "build": "rimraf --glob dist/** && npm run fmt && npm run typecheck && npx parcel build",
         "lint": "npx eslint ./src/**",
         "fmt": "npx prettier ./src/** ./*.json ./*.js --write",
