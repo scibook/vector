@@ -17,7 +17,7 @@
         "makebadges": "npx istanbul-badges-readme",
         "typecheck": "tsc --project tsconfig.json",
         "makedocs": "rimraf --glob docs/** && npx typedoc --out docs ./src/index.ts",
-        "publishdocs": "npm run makedocs && npx gh-pages -d ,/docs"
+        "publishdocs": "npm run makedocs && npx gh-pages -d ./docs"
     },
     "files": [
         "dist"
