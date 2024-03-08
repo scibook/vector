@@ -107,6 +107,17 @@ describe("Simple expression tests", () => {
         const vec2 = new Vector2(1,0)
         expect(vec1.dot(vec2)).toBeCloseTo(0)
     });
+    test("Distance", () => {
+        const vec1 = new Vector2(0,1)
+        const vec2 = new Vector2(1,0)
+        expect(vec1.distance(vec1)).toBeCloseTo(0)
+        expect(vec1.distance(vec2)).toBeCloseTo(Math.SQRT2)
+        const vec3 = new Vector2(-5,1)
+        const vec4 = new Vector2(-1,2.2)
+        const solution = 4.17612
+        expect(vec3.distance(vec4)).toBeCloseTo(solution)
+
+    });
     test("Rotate", () => {
         const vec1 = new Vector2(1,0)
         expect(vec1.rotate(Math.PI)[0]).toBeCloseTo(-1)

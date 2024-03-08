@@ -188,6 +188,15 @@ export class BaseVector {
     }
 
     /**
+     * Get the distance between two vectors
+     * @param b - The vector we are taking the distance to
+     * @returns A scalar representing the distance between vectors
+     */
+    distance(b: BaseVector): number {
+        return this.sub(b).magnitude()
+    }
+
+    /**
      * @returns A string formatted 'x,y'.
      */
     toString(): string {

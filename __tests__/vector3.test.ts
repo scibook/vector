@@ -174,6 +174,17 @@ describe("Simple expression tests", () => {
         const ans = new Vector3(1,7,-5)
         expect(vec3.cross(vec4).isEqual(ans)).toBe(true)
     });
+    test("Distance", () => {
+        const vec1 = new Vector3(0,1,1)
+        const vec2 = new Vector3(1,0,1)
+        expect(vec1.distance(vec1)).toBeCloseTo(0)
+        expect(vec1.distance(vec2)).toBeCloseTo(1.414214)
+        const vec3 = new Vector3(-5,1,-3.2)
+        const vec4 = new Vector3(-1,2.2,-10.23)
+        const solution = 8.176851
+        expect(vec3.distance(vec4)).toBeCloseTo(solution)
+
+    });
     test("fromArray", () => {
         const vec = Vector3.fromArray([1,2,3]);
         expect(vec.x).toBeCloseTo(1);

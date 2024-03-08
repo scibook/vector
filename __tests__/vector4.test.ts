@@ -389,6 +389,16 @@ describe("Simple expression tests", () => {
         const vec2 = new Vector4(1,0,0,0)
         expect(vec1.dot(vec2)).toBeCloseTo(0)
     });
+    test("Distance", () => {
+        const vec1 = new Vector4(0,1,1,1)
+        const vec2 = new Vector4(1,0,1,0)
+        expect(vec1.distance(vec1)).toBeCloseTo(0)
+        expect(vec1.distance(vec2)).toBeCloseTo(1.732)
+        const vec3 = new Vector4(-5,1,-3.2,9.333)
+        const vec4 = new Vector4(-1,2.2,-10.23,-0.2)
+        const solution = 12.559
+        expect(vec3.distance(vec4)).toBeCloseTo(solution)
+    });
     test("Rotate", () => {
 
     });
